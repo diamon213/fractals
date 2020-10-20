@@ -15,7 +15,7 @@ r = 2.5
 x = linspace(-2.5, 1.5, 4 * d + 1)
 y = linspace(-1.5, 1.5, 3 * d + 1)
 
-T = zeros(len(y), len(x))
+image = zeros(len(y), len(x))
 
 for i, b in enumerate(y):
     for j, a in enumerate(x):
@@ -24,7 +24,7 @@ for i, b in enumerate(y):
             u, v = u ** 2 - v ** 2 + a, 2 * u * v + b
             if not u ** 2 + v ** 2 < r ** 2:
                 break
-        T[i][j] = k + 1
+        image[i][j] = k + 1
 
-plt.imshow(T, cmap='nipy_spectral_r')
+plt.imshow(image, cmap='nipy_spectral_r')
 plt.savefig("mandelbrot.png", dpi=200)
